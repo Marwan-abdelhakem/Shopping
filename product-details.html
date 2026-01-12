@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Product Details</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo-area">
+            <img src="./image/logo.png" alt="Logo">
+            <span>Minimal Shopping</span>
+        </div>
+        <a href="index.html" class="logo-btn">
+            Home
+        </a>
+    </header>
+
+    <section class="details-container" id="detailsContainer">
+        <!-- display product -->
+    </section>
+
+    <script src="data.js"></script>
+
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        const product = products.find(p => p.id === productId);
+        const detailsContainer = document.getElementById('detailsContainer');
+
+        if (product) {
+            detailsContainer.innerHTML = `
+                <div class="details-wrapper">
+                    <div class="details-image">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="details-info">
+                        <h1 class="details-title">${product.title}</h1>
+                        <p class="details-subtitle">${product.subtitle}</p>
+                        <h2 class="details-price">${product.price}</h2>
+                        
+                        <p class="details-description">
+                            ${product.description}
+                            <br><br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+
+                        <div class="details-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <a href="index.html" class="back-btn">Back to Products</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } 
+    </script>
+</body>
+
+</html>

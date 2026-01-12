@@ -64,37 +64,3 @@ const products = [
         description: "Floral scent with woody notes. Long-lasting fragrance for special occasions."
     }
 ];
-const productGrid = document.getElementById('productGrid');
-
-function renderProducts() {
-    if (!productGrid) return;
-    const productsHTML = products.map(product => {
-        return `
-            <article class="product-card" onclick="goToDetails(${product.id})">
-                <div class="card-image-wrapper">
-                    <img src="${product.image}" alt="${product.title}">
-                    
-                    <button class="wishlist-btn" onclick="event.stopPropagation(); addToWishlist(${product.id})">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </div>
-                <div class="card-info">
-                    <div class="info-row">
-                        <h3 class="product-title">${product.title}</h3>
-                        <span class="product-price">${product.price}</span>
-                    </div>
-                    <p class="product-subtitle">${product.subtitle}</p>
-                    <p class="product-desc">${product.description}</p>
-                </div>
-            </article>
-        `;
-    }).join('');
-
-    productGrid.innerHTML = productsHTML;
-}
-function goToDetails(id) {
-    window.location.href = `product-details.html?id=${id}`;
-}
-
-
-renderProducts();
