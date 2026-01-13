@@ -345,6 +345,11 @@ body {
     color: white;
 }
 
+.home-btn {
+    text-decoration: none;
+    color: #F61B5A;
+}
+
 @media (max-width: 768px) {
     .details-wrapper {
         flex-direction: column;
